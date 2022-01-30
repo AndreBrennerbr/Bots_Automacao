@@ -1,0 +1,42 @@
+#BoTinstagram by André Brenner
+from selenium import webdriver
+import time
+nav = webdriver.Chrome("chromedriver.exe")
+
+nav.get("https://www.instagram.com")
+time.sleep(2)
+#login
+nav.find_element_by_xpath('//*[@id="loginForm"]/div/div[1]/div/label/input').send_keys("seu email")
+#senha
+nav.find_element_by_xpath('//*[@id="loginForm"]/div/div[2]/div/label/input').send_keys("sua senha")
+#clicar para entrar
+nav.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]/button/div').click()
+
+time.sleep(3)
+#agora não
+nav.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div/div/div/button').click()
+
+time.sleep(3)
+#agora não
+nav.find_element_by_xpath('/html/body/div[5]/div/div/div/div[3]/button[2]').click()
+
+time.sleep(1)
+#clicar na barra de pesquisa
+nav.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/div[1]/div').click()
+
+#pesquisar
+nav.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/input').send_keys("ajudaropovodehumanas")
+
+time.sleep(0.5)
+#entrar no perfil
+nav.find_element_by_class_name('-qQT3').click()
+
+time.sleep(3)
+#seguir
+nav.find_element_by_xpath('//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/div/div/div/span/span[1]/button').click()
+time.sleep(3)
+#selecionar a primeria foto 
+nav.find_element_by_class_name('_9AhH0').click()
+time.sleep(0.5)
+#curtir
+nav.find_element_by_xpath('/html/body/div[5]/div[3]/div/article/div/div[2]/div/div/div[2]/section[1]/span[1]/button').click()
